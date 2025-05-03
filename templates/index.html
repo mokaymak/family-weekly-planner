@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Weekly Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Oswald:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Oswald:wght@500&family=Roboto&family=Poppins:wght@500&family=Caveat&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <h1 class="title">Family Weekly Planner</h1>
+       
+        
+        <div class="page-signature">Welcome</div>
+
+        <div class="funktionen-seiten-horizontal">
+          <a href="{{ url_for('haushalt') }}" class="bereich-streifen haushalt-link">
+            <div class="bereich-emoji">🧹</div>
+            <div class="bereich-label">Household Tasks</div>
+          </a>
+        
+          <a href="{{ url_for('termine') }}" class="bereich-streifen termine-link">
+            <div class="bereich-emoji">⏰</div>
+            <div class="bereich-label">Appointments</div>
+          </a>
+        
+
+      </div>
+    </nav>
+    <script>
+      const buttons = document.querySelectorAll('.funktionen-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    </script>
+
+  </body>
+</html>

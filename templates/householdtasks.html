@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Weekly Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Oswald:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Oswald:wght@500&family=Roboto&family=Poppins:wght@500&family=Caveat&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <h1 class="title">Family Weekly Planner</h1>
+        
+        <div class="page-signature">Household Tasks</div>
+
+
+        <div class="funktionen-seiten-horizontal">
+          <a href="{{ url_for('haushalt') }}" class="bereich-streifen haushalt-link">
+            <div class="bereich-emoji">🧹</div>
+            <div class="bereich-label">Household Tasks</div>
+          </a>
+        
+          <a href="{{ url_for('termine') }}" class="bereich-streifen termine-link">
+            <div class="bereich-emoji">⏰</div>
+            <div class="bereich-label">Appointments</div>
+          </a>
+        </div>
+
+
+        <h2 class="weekday">Monday:</h2>
+        <h2 class="weekday">Tuesday:</h2>
+        <h2 class="weekday">Wednesday:</h2>
+        <h2 class="weekday">Thursday:</h2>
+        <h2 class="weekday">Friday:</h2>
+        <h2 class="weekday">Saturday:</h2>
+        <h2 class="weekday">Sunday:</h2>
+      
+        <div class="button-container" id="buttonContainer">
+          <button class="buttonhinzufügen" onclick="toggleToInput()">Add</button>
+          <button class="buttonlöschen">Delete</button>
+        </div>
+        
+        <div id="inputForm" style="display: none; text-align: center; margin-top: 20px;">
+          <label for="nameInput">Name:</label><br>
+          <input type="text" id="nameInput" maxlength="20" minlength="1" style="padding: 10px; width: 250px;"><br><br>
+        
+          <label for="taskInput">Household Task:</label><br>
+          <input type="text" id="taskInput" maxlength="30" minlength="1" style="padding: 10px; width: 250px;"><br><br>
+        
+          <button onclick="submitTask()">Submit</button>
+        </div>
+        
+
+        
+
+        <script>
+          function toggleToInput() {
+            document.getElementById('buttonContainer').style.display = 'none';
+            document.getElementById('inputForm').style.display = 'block';
+          }
+        
+          function submitTask() {
+            const name = document.getElementById('nameInput').value;
+            const task = document.getElementById('taskInput').value;
+            alert("Eingetragen:\nName: " + name + "\nTask: " + task);
+        
+            document.getElementById('nameInput').value = '';
+            document.getElementById('taskInput').value = '';
+        
+            document.getElementById('buttonContainer').style.display = 'flex';
+            document.getElementById('inputForm').style.display = 'none';
+          }
+        </script>
+
+      
+
+      </div>
+    </nav>
+    <script>
+      const buttons = document.querySelectorAll('.funktionen-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    </script>
+
+  </body>
+</html>
