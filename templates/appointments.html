@@ -45,18 +45,33 @@
           <button class="buttonlöschen">Delete</button>
         </div>
         
-        <div id="inputForm" style="display: none; text-align: center; margin-top: 20px;">
+        <form id="inputForm" action="/add" method="POST" style="display: none; text-align: center; margin-top: 20px;">
           <label for="nameInput">Name:</label><br>
-          <input type="text" id="nameInput" maxlength="20" minlength="1" style="padding: 10px; width: 250px;"><br><br>
-
-          <label for="appointmentInput">Appointment Type:</label><br>
-          <input type="text" id="appointmentInput" maxlength="30" minlength="1" style="padding: 10px; width: 250px;"><br><br>
+          <input type="text" name="name" id="nameInput" maxlength="20" minlength="1" required style="padding: 10px; width: 250px;"><br><br>
         
-          <label for="timeInput">Time:</label><br>
-          <input type="time" id="timeInput" style="padding: 10px; width: 250px;"><br><br>
+          <label for="taskInput">Household Task:</label><br>
+          <input type="text" name="task" id="taskInput" maxlength="30" minlength="1" required style="padding: 10px; width: 250px;"><br><br>
+        
+          <label for="dayInput">Day:</label><br>
+          <select name="day" id="dayInput" required style="padding: 10px; width: 275px;">
+          <option value="">--Choose a day--</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+          </select><br><br>
 
-          <button onclick="submitTask()">Submit</button>
-        </div>
+          <label for="timeInput">Time:</label><br>
+          <input type="time" name="time" id="timeInput" required style="padding: 10px; width: 250px;"><br><br>
+        
+          <button type="submit">Submit</button>
+
+          <button type="button" onclick="cancelForm()">Cancel</button>
+          
+        </form>
         
 
         <script>
@@ -64,19 +79,25 @@
             document.getElementById('buttonContainer').style.display = 'none';
             document.getElementById('inputForm').style.display = 'block';
           }
-        
-          function submitTask() {
-            const name = document.getElementById('nameInput').value;
-            const appointment = document.getElementById('appointmentInput').value;
-            const time = document.getElementById('timeInput').value;
-            alert("Eingetragen:\nName: " + name + "\nAppointment: " + appointment + "\nTime: " + time);
-        
-            document.getElementById('nameInput').value = '';
-            document.getElementById('appointmentInput').value = '';
-            document.getElementById('timeInput').value = '';
-        
-            document.getElementById('buttonContainer').style.display = 'flex';
-            document.getElementById('inputForm').style.display = 'none';
+        </script>
+
+        <script>
+         function toggleToInput() {
+           document.getElementById('buttonContainer').style.display = 'none';
+           document.getElementById('inputForm').style.display = 'block';
+          }
+
+         function cancelForm() {
+           document.getElementById('inputForm').style.display = 'none';
+           document.getElementById('buttonContainer').style.display = 'flex';
+    
+         
+           document.getElementById('nameInput').value = '';
+           document.getElementById('taskInput').value = '';
+           document.getElementById('dayInput').value = '';
+           document.getElementById('timeInput').value = '';
+           const dayInput = document.getElementById('dayInput');
+           if (dayInput) dayInput.value = '';
           }
         </script>
 

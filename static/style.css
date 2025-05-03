@@ -79,7 +79,7 @@ body {
   .buttonlöschen {
   font-size: 20px;
   font-weight: bold;
-  padding: 14px 28px; /* größer & kantiger */
+  padding: 14px 28px; 
   border: none;
   border-radius: 4px;
   background-color: #ffffff;
@@ -91,8 +91,8 @@ body {
 
 .buttonhinzufügen:hover,
 .buttonlöschen:hover {
-  background-color: #fff4e0;   /* leicht orange */
-  color: #d35400;              /* kräftiges Orange */
+  background-color: #fff4e0;   
+  color: #d35400;              
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -151,9 +151,9 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
-  /* Haushaltsaufgaben Style */
+
   .haushalt-link {
-    border-left-color: #d35400cc; /* green */
+    border-left-color: #d35400cc; 
   }
   
   .haushalt-link .bereich-label {
@@ -161,26 +161,26 @@ body {
   }
 
   .haushalt-link.active {
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); /* sanftes grünes Glühen */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); 
     transform: scale(1.02);
   }
   
   .termine-link.active {
-    box-shadow: 0 0 15px rgba(33, 150, 243, 0.3); /* sanftes blaues Glühen */
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.3); 
     transform: scale(1.02);
   }
   
   
-  /* Termine Style */
+ 
   .termine-link {
-    border-left-color: #d35400cc; /* blue */
+    border-left-color: #d35400cc;
   }
   
   .termine-link .bereich-label {
     color: #d35400cc;
   }
   
-  /* Shared styling */
+  
   .bereich-emoji {
     font-size: 36px;
   }
@@ -197,7 +197,22 @@ body {
     left: 70%;
     font-family: 'Caveat', cursive;
     font-size: 35px;
-    color: #d35400cc; /* warmes Orange */
+    color: #d35400cc; 
     transform: rotate(-3deg);
     z-index: 1;
   }
+
+  .dialog { 
+    display: none; 
+  }
+  
+  .dialog.active { 
+    display: block; 
+  }
+
+  label {
+    font-family: 'Poppins', sans-serif; /* oder deine gewünschte Schriftart */
+    font-size: 16px; /* optional */
+    font-weight: 500; /* optional: für etwas dickere Schrift */
+  }
+  
