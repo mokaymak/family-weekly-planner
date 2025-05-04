@@ -179,14 +179,36 @@ h2.weekday {
   font-family: "Oswald", sans-serif;
 }
 
-.page-signature {
-  position: absolute; /* Absolute Positionierung für genaue Kontrolle */
-  top: 0; /* Setzt den Abstand vom oberen Rand der Seite */
-  left: 50%; /* Setzt den linken Rand auf die Mitte der Seite */
-  transform: translateX(-50%) rotate(-3deg); /* Zentriert das Element und dreht es */
+.page-signaturehousehold {
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%) rotate(-3deg); 
   font-family: 'Caveat', cursive;
   font-size: 35px;
-  color: #d35400cc; 
+  color: #00e1ff; 
+  z-index: 1;
+}
+
+.page-signatureappointments {
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%) rotate(-3deg);
+  font-family: 'Caveat', cursive;
+  font-size: 35px;
+  color: #ffae00; 
+  z-index: 1;
+}
+
+.page-signaturewelcome {
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%) rotate(-3deg); 
+  font-family: 'Caveat', cursive;
+  font-size: 35px;
+  color: #ff0000; 
   z-index: 1;
 }
 
@@ -240,16 +262,30 @@ label {
   margin-bottom: 20px;
 }
 
-.entry-item {
-  background-color: #00d9ff;
-  font-weight: 700;
+.entry-itemhousehold {
+  font-family:  'Inter', sans-serif;
+  background-color: #00e1ff;;
+  font-weight: 500;
   padding: 10px;
   border-radius: 8px;
+  letter-spacing: 0.5px;
   margin-bottom: 10px;
-  font-size: 16px;
-  color: #6B4B3E;
+  font-size: 20px;
+  color: #000000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+.entry-itemappointment {
+  font-family:  'Inter', sans-serif;
+  background-color: #ffae00;;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 
 input[type="text"], input[type="time"], select {
   padding: 10px;
@@ -265,5 +301,72 @@ input[type="text"], input[type="time"], select {
   flex-direction: column;
   gap: 15px;
   flex-grow: 1;
-  overflow: hidden; /* Verhindert, dass der Inhalt nach außen herausragt */
+  overflow: hidden; 
 }
+
+#deleteForm {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #ffffff; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  font-family: 'Poppins', sans-serif;
+}
+
+#deleteForm h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#deleteForm label {
+  margin-left: 6px;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+#deleteForm .entry-checkbox {
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+#deleteForm button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#deleteForm button[type="submit"] {
+  background-color: #dc3545;
+  color: white;
+}
+
+#deleteForm button[type="submit"]:hover {
+  background-color: #c82333;
+}
+
+#deleteForm button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 12px;
+}
+
+#deleteForm button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+#deleteForm .checkbox-group {
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+

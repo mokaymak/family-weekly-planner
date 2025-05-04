@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Oswald:wght@500&family=Roboto&family=Poppins:wght@500&family=Caveat&display=swap" rel="stylesheet">
+    
   </head>
 
   <body>
@@ -17,7 +18,7 @@
       <div class="container-fluid">
         <h1 class="title">Family Weekly Planner</h1>
         
-        <div class="page-signature">Household Tasks</div>
+        <div class="page-signaturehousehold">Household Tasks</div>
 
 
         <div class="funktionen-seiten-horizontal">
@@ -32,18 +33,18 @@
           </a>
         </div>
       
-        <!-- Flexbox-Container für die Wochentage und ihre Einträge -->
+        
         <div class="week-container">
           {% for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
             <div class="day-box">
               <h2 class="weekday-title">{{ day }}:</h2>
               <div class="day-content">
-                {% for entry in entries if entry.day == day %}
-                  <div class="entry-item">
+                {% for entry in entries if entry.day == day and entry_type == "householdtasks" %}
+                  <div class="entry-itemhousehold">
                     <span class="time">{{ entry.time }}</span> 
-                    <span class="separator"> - </span>  <!-- Füge den Bindestrich hier hinzu -->
+                    <span class="separator"> - </span>  
                     <span class="name">{{ entry.name }}</span>
-                    <span class="separator"> - </span>  <!-- Füge den Bindestrich hier hinzu -->
+                    <span class="separator"> - </span>  
                     <span class="task">{{ entry.task }}</span>
                   </div>
                 {% endfor %}
@@ -53,34 +54,27 @@
         </div>
 
         <div class="day-content">
-          {% for entry in entries if entry.day == day %}
-            <div class="entry-item" id="entry-{{ entry.id }}">
+          {% for entry in entries if entry.day == day and entry_type == "householdtasks" %}
+            <div class="entry-itemhousehold" id="entry-{{ entry.id }}">
               <span class="time">{{ entry.time }}</span> 
               <span class="name">{{ entry.name }}</span>
               <span class="task">{{ entry.task }}</span>
             </div>
           {% endfor %}
         </div>
-        
-        
-          
-        
-
-
-        
-
 
 
         <div class="button-container" id="buttonContainer">
           <button class="buttonhinzufügen" onclick="toggleToInput()">Add</button>
-          <button class="buttonlöschen">Delete</button>
+          <button class="buttonlöschen" onclick="toggleToDelete()">Delete</button>
         </div>
         
-        <form id="inputForm" action="/add" method="POST" style="display: none; text-align: center; margin-top: 20px;">
+        <form id="inputForm" action="/add" method="POST" style="display: none; text-align: center; font-size: larger; margin-top: 20px;">
+          <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Add Entries</h3>
           <label for="nameInput">Name:</label><br>
           <input type="text" name="name" id="nameInput" maxlength="20" minlength="1" required style="padding: 10px; width: 250px;"><br><br>
         
-          <label for="taskInput">Household Task:</label><br>
+          <label for="taskInput">Appointment Type:</label><br>
           <input type="text" name="task" id="taskInput" maxlength="30" minlength="1" required style="padding: 10px; width: 250px;"><br><br>
         
           <label for="dayInput">Day:</label><br>
@@ -98,43 +92,93 @@
           <label for="timeInput">Time:</label><br>
           <input type="time" name="time" id="timeInput" required style="padding: 10px; width: 250px;"><br><br>
         
-          <button type="submit">Submit</button>
+          <input type="hidden" name="entry_type" value="householdtasks">
 
-          <button type="button" onclick="cancelForm()">Cancel</button>
+          <button type="submit" style="padding: 10px 20px; background-color: #007000; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Add</button>
 
+          <button type="button" onclick="cancelForm()" style="padding: 10px 20px; margin-left: 10px; background-color: #6c757d; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Cancel</button>
+          
         </form>
-        
-        
 
+        <form id="deleteForm" action="/delete-selected" method="POST" style="display: none; text-align: center; font-size: larger; margin-top: 20px;">
+          <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Delete Entries</h3>
         
-
-        <script>
-          function toggleToInput() {
-            document.getElementById('buttonContainer').style.display = 'none';
-            document.getElementById('inputForm').style.display = 'block';
-          }
-        </script>
+          <div style="text-align: center; margin-bottom: 15px;">
+            <input type="checkbox" id="selectAll" onclick="selectAllCheckboxes()">
+            <label for="selectAll">Select All</label>
+          </div>
+        
+          <div style="max-width: 700px; margin: 0 auto; text-align: left;">
+            {% for entry in entries %}
+              <div style="margin: 8px 0; padding: 8px 12px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.05); font-family: 'Poppins', sans-serif;">
+                <input type="checkbox" name="delete_ids" value="{{ entry.id }}" id="entry-{{ entry.id }}" style="margin-right: 8px;">
+                <label for="entry-{{ entry.id }}">
+                  <strong>{{ entry.day }}</strong> – {{ entry.time }} – {{ entry.name }} – {{ entry.task }}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+        
+          <input type="hidden" name="entry_type" value="{{ entry_type }}">
+        
+          <div style="margin-top: 20px;">
+            <button type="submit" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+              Delete Selected
+            </button>
+            <button type="button" onclick="cancelDelete()" style="padding: 10px 20px; margin-left: 10px; background-color: #6c757d; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+              Cancel
+            </button>
+          </div>
+        </form>
   
         <script>
          function toggleToInput() {
-           document.getElementById('buttonContainer').style.display = 'none';
-           document.getElementById('inputForm').style.display = 'block';
-          }
+         document.getElementById('buttonContainer').style.display = 'none';
+         document.getElementById('inputForm').style.display = 'block';
+        }
 
-         function cancelForm() {
-           document.getElementById('inputForm').style.display = 'none';
-           document.getElementById('buttonContainer').style.display = 'flex';
-    
-         
-           document.getElementById('nameInput').value = '';
-           document.getElementById('taskInput').value = '';
-           document.getElementById('dayInput').value = '';
-           document.getElementById('timeInput').value = '';
-           const dayInput = document.getElementById('dayInput');
-           if (dayInput) dayInput.value = '';
-          }
+        function cancelForm() {
+        document.getElementById('inputForm').style.display = 'none';
+        document.getElementById('buttonContainer').style.display = 'flex';
+
+        document.getElementById('nameInput').value = '';
+        document.getElementById('taskInput').value = '';
+        document.getElementById('dayInput').value = '';
+        document.getElementById('timeInput').value = '';
+        document.getElementById('entry_type').value = 'householdtasks';
+}
+
         </script>
 
+<script>
+  function toggleToDelete() {
+    document.getElementById('buttonContainer').style.display = 'none';
+    document.getElementById('deleteForm').style.display = 'block';
+  }
+
+  function cancelDelete() {
+    document.getElementById('deleteForm').style.display = 'none';
+    document.getElementById('buttonContainer').style.display = 'flex';
+
+    document.querySelectorAll('#deleteForm input[type="checkbox"]').forEach(cb => cb.checked = false);
+  }
+</script>
+
+<script>
+  function selectAllCheckboxes() {
+    const master = document.getElementById('selectAll');
+    document.querySelectorAll('#deleteForm input[type="checkbox"]').forEach(cb => {
+      if (cb.id !== 'selectAll') cb.checked = master.checked;
+    });
+  }
+
+  function cancelDelete() {
+    document.getElementById('deleteForm').style.display = 'none';
+    document.getElementById('buttonContainer').style.display = 'flex';
+    document.getElementById('selectAll').checked = false;
+    document.querySelectorAll('#deleteForm input[type="checkbox"]').forEach(cb => cb.checked = false);
+  }
+</script>
 
       </div>
     </nav>
