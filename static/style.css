@@ -1,82 +1,79 @@
 body {
-    padding: 0;
-    margin: 0;
-    background: #FCF8F4;
-  }
-  
-  h1 {
-    font-family: "Oswald", sans-serif;
-    color: #3F51B5; 
-    font-size: 36px;
-    font-weight: 500;
-    text-align: center;
-    padding: 30px 0;
-    margin-bottom: 0px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  padding: 0;
+  margin: 0;
+  background: #FCF8F4;
+}
 
-  h2 {
-    font-family: "Oswald", sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: #3F51B5;        
-    margin-top: 40px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    text-align: left;
-    padding-left: 20px;
-  }
-  
-  
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #E3F2FD;
-    height: 100vh;
-  }
-  
-  .title {
-    font-family: "Oswald", sans-serif;
-    font-size: 60px;
-    color: #3E2D26;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 0px;
-    display: block;
-    background: transparent;
-  }
-  
-  h2.weekday {
-    font-family: 'Poppins', sans-serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: #6B4B3E;
-    letter-spacing: 0.5px;
-    text-align: left;
-    border: 2px solid #DADCE0;
-    background: #FFFFFF;
-    padding: 16px;
-    margin-bottom: 40px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px #EADBC8;
-  }
-  
+h1 {
+  font-family: "Oswald", sans-serif;
+  color: #3F51B5; 
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  padding: 30px 0;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-  .button-container {
-    font-family: "Noto Sans", sans-serif;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .buttonhinzufügen,
-  .buttonlöschen {
+h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: #3F51B5;        
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 20px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E3F2FD;
+  height: 100vh;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  color: #3E2D26;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 0px;
+  display: block;
+  background: transparent;
+}
+
+h2.weekday {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #6B4B3E;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border: 2px solid #DADCE0;
+  background: #FFFFFF;
+  padding: 16px;
+  margin-bottom: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px #EADBC8;
+}
+
+.button-container {
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.buttonhinzufügen, .buttonlöschen {
   font-size: 20px;
   font-weight: bold;
   padding: 14px 28px; 
@@ -86,133 +83,187 @@ body {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  min-width: 150px;
+  min-width: 100px;
 }
 
-.buttonhinzufügen:hover,
-.buttonlöschen:hover {
+.buttonhinzufügen:hover, .buttonlöschen:hover {
   background-color: #fff4e0;   
   color: #d35400;              
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-  
-  .buttonhinzufügen {
-    color: #007000;
-  }
-  
-  .buttonlöschen {
-    color: #ff0000;
-  }
+.buttonhinzufügen {
+  color: #007000;
+}
 
-  .funktionen-seiten-horizontal {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 10px auto;
-    width: 90%;
-    max-width: 1200px;
-  }
-  
-  .funktionen-seiten-horizontal a.bereich-streifen {
-    width: 320px;
-    height: 80px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-left: 6px solid transparent;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.25s ease-in-out;
-    position: relative;
-  }
-  
-  .bereich-emoji {
-    font-size: 30px;
-    margin-right: 10px;
-    position: absolute;
-    left: 20px;
-  }
-  
-  .bereich-label {
-    font-size: 18px;
-    font-weight: 500;
-    font-family: "Oswald", sans-serif;
-    margin: 0 auto;
-  }
-  
-  
-  
-  .funktionen-seiten-horizontal a.bereich-streifen:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-  
+.buttonlöschen {
+  color: #ff0000;
+}
 
-  .haushalt-link {
-    border-left-color: #d35400cc; 
-  }
-  
-  .haushalt-link .bereich-label {
-    color: #d35400cc;
-  }
+.funktionen-seiten-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 10px auto;
+  width: 100%;
+}
 
-  .haushalt-link.active {
-    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); 
-    transform: scale(1.02);
-  }
-  
-  .termine-link.active {
-    box-shadow: 0 0 15px rgba(33, 150, 243, 0.3); 
-    transform: scale(1.02);
-  }
-  
-  
- 
-  .termine-link {
-    border-left-color: #d35400cc;
-  }
-  
-  .termine-link .bereich-label {
-    color: #d35400cc;
-  }
-  
-  
-  .bereich-emoji {
-    font-size: 36px;
-  }
-  
-  .bereich-label {
-    font-size: 22px;
-    font-weight: bold;
-    font-family: "Oswald", sans-serif;
-  }
+.funktionen-seiten-horizontal a.bereich-streifen {
+  width: 320px;
+  height: 80px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-left: 6px solid transparent;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
 
-  .page-signature {
-    position: relative;
-    top: -55px;
-    left: 70%;
-    font-family: 'Caveat', cursive;
-    font-size: 35px;
-    color: #d35400cc; 
-    transform: rotate(-3deg);
-    z-index: 1;
-  }
+.bereich-emoji {
+  font-size: 30px;
+  margin-right: 10px;
+  position: absolute;
+  left: 20px;
+}
 
-  .dialog { 
-    display: none; 
-  }
-  
-  .dialog.active { 
-    display: block; 
-  }
+.bereich-label {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  margin: 0 auto;
+}
 
-  label {
-    font-family: 'Poppins', sans-serif; /* oder deine gewünschte Schriftart */
-    font-size: 16px; /* optional */
-    font-weight: 500; /* optional: für etwas dickere Schrift */
-  }
-  
+.funktionen-seiten-horizontal a.bereich-streifen:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.haushalt-link {
+  border-left-color: #d35400cc; 
+}
+
+.haushalt-link .bereich-label {
+  color: #d35400cc;
+}
+
+.haushalt-link.active {
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); 
+  transform: scale(1.02);
+}
+
+.termine-link.active {
+  box-shadow: 0 0 15px rgba(33, 150, 243, 0.3); 
+  transform: scale(1.02);
+}
+
+.termine-link {
+  border-left-color: #d35400cc;
+}
+
+.termine-link .bereich-label {
+  color: #d35400cc;
+}
+
+.bereich-emoji {
+  font-size: 36px;
+}
+
+.bereich-label {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+}
+
+.page-signature {
+  position: absolute; /* Absolute Positionierung für genaue Kontrolle */
+  top: 0; /* Setzt den Abstand vom oberen Rand der Seite */
+  left: 50%; /* Setzt den linken Rand auf die Mitte der Seite */
+  transform: translateX(-50%) rotate(-3deg); /* Zentriert das Element und dreht es */
+  font-family: 'Caveat', cursive;
+  font-size: 35px;
+  color: #d35400cc; 
+  z-index: 1;
+}
+
+
+.dialog { 
+  display: none; 
+}
+
+.dialog.active { 
+  display: block; 
+}
+
+label {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 16px; 
+  font-weight: 500; 
+}
+
+.week-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 15px;
+  margin-top: 30px;
+  min-width: 1100px;
+  min-height: 800px;
+}
+
+.day-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  min-height: 200px;
+  text-align: center;
+}
+
+.weekday-title {
+  font-family: 'Poppins', sans-serif;
+  text-decoration: underline;
+  font-size: 30px;
+  font-weight: 800;
+  color: #6B4B3E;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.entry-item {
+  background-color: #00d9ff;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #6B4B3E;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="time"], select {
+  padding: 10px;
+  width: 90%; 
+  margin-left: auto;
+  margin-right: auto;  
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.day-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+  overflow: hidden; /* Verhindert, dass der Inhalt nach außen herausragt */
+}

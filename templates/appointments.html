@@ -31,14 +31,26 @@
           </a>
         </div>
 
+         <!-- Flexbox-Container für die Wochentage und ihre Einträge -->
+         <div class="week-container">
+          {% for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            <div class="day-box">
+              <h2 class="weekday-title">{{ day }}:</h2>
+              <div class="day-content">
+                {% for entry in entries if entry.day == day %}
+                  <div class="entry-item">
+                    <span class="time">{{ entry.time }}</span> 
+                    <span class="separator"> - </span>  <!-- Füge den Bindestrich hier hinzu -->
+                    <span class="name">{{ entry.name }}</span>
+                    <span class="separator"> - </span>  <!-- Füge den Bindestrich hier hinzu -->
+                    <span class="task">{{ entry.task }}</span>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
 
-        <h2 class="weekday">Monday:</h2>
-        <h2 class="weekday">Tuesday:</h2>
-        <h2 class="weekday">Wednesday:</h2>
-        <h2 class="weekday">Thursday:</h2>
-        <h2 class="weekday">Friday:</h2>
-        <h2 class="weekday">Saturday:</h2>
-        <h2 class="weekday">Sunday:</h2>
       
         <div class="button-container" id="buttonContainer">
           <button class="buttonhinzufügen" onclick="toggleToInput()">Add</button>
