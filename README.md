@@ -24,6 +24,7 @@ Each family member can access the planner and contribute – making the weekly s
 ## 🛠️ Built With
 
 - HTML / CSS
+- Docker 🐳
 - JavaScript
 - Flask (Python)
 - Bootstrap & Google Fonts
@@ -33,10 +34,13 @@ Each family member can access the planner and contribute – making the weekly s
 
 ![image](https://github.com/user-attachments/assets/4ad12c0e-02f6-4db3-8784-f55ea6b8ffe1)
 
+## 🐳 Run with Docker
 
-## 🚀 Next Steps
+You can run this project locally using Docker:
 
-- Enable user login (soon)
-- Make the planner mobile-friendly (soon)
+```bash
+# Step 1: Build the image
+docker build -t family-planner .
 
-
+# Step 2: Run the container
+docker run -p 5000:5000 family-planner
