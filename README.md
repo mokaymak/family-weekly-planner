@@ -40,7 +40,7 @@ You can run this project locally using Docker:
 
 ```bash
 # Step 1: Build the image
-docker build -t family-planner .
+docker build -t myflaskapp
 
 # Step 2: Run the container
-docker run -p 5000:5000 family-planner
+docker run -p 5000:5000 myflaskapp
