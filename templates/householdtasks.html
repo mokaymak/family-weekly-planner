@@ -109,14 +109,19 @@
           </div>
         
           <div style="max-width: 700px; margin: 0 auto; text-align: left;">
-            {% for entry in entries %}
-              <div style="margin: 8px 0; padding: 8px 12px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.05); font-family: 'Poppins', sans-serif;">
-                <input type="checkbox" name="delete_ids" value="{{ entry.id }}" id="entry-{{ entry.id }}" style="margin-right: 8px;">
-                <label for="entry-{{ entry.id }}">
-                  <strong>{{ entry.day }}</strong> – {{ entry.time }} – {{ entry.name }} – {{ entry.task }}
-                </label>
-              </div>
-            {% endfor %}
+            {% set weekday_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+
+          {% for day in weekday_order %}
+           {% for entry in entries if entry.day == day %}
+            <div style="margin: 8px 0; padding: 8px 12px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.05); font-family: 'Poppins', sans-serif;">
+            <input type="checkbox" name="delete_ids" value="{{ entry.id }}" id="entry-{{ entry.id }}" style="margin-right: 8px;">
+            <label for="entry-{{ entry.id }}">
+              <strong>{{ entry.day }}</strong> – {{ entry.time }} – {{ entry.name }} – {{ entry.task }}
+            </label>
+            </div>
+           {% endfor %}
+          {% endfor %}
+
           </div>
         
           <input type="hidden" name="entry_type" value="{{ entry_type }}">
