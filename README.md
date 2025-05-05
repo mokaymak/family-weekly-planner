@@ -1,8 +1,8 @@
-🧹 Family Weekly Planner 📅
+## 🧹 Family Weekly Planner 📅
 
 A simple and intuitive web app to help families organize their weekly household tasks and appointments – so everyone always knows who does what, and when.
 
-✅ Features
+## ✅ Features
 
 - Add and delete household tasks for each family member
 - Add and delete appointments for specific days
@@ -12,7 +12,7 @@ A simple and intuitive web app to help families organize their weekly household 
 - Data clearly structured by weekday
 - Accessible from anywhere – keep the whole family in sync
 
-💡 Purpose
+## 💡 Purpose
 
 This project is designed to support families in staying organized with:
 - Household responsibilities 🧽
@@ -21,7 +21,7 @@ This project is designed to support families in staying organized with:
 
 Each family member can access the planner and contribute – making the weekly schedule visible to all, at all times.
 
-🛠️ Built With
+## 🛠️ Built With
 
 - HTML / CSS
 - JavaScript
@@ -29,12 +29,12 @@ Each family member can access the planner and contribute – making the weekly s
 - Bootstrap & Google Fonts
 - Git & GitHub
 
-📸 Screenshot
+## 📸 Screenshot
 
 ![image](https://github.com/user-attachments/assets/4ad12c0e-02f6-4db3-8784-f55ea6b8ffe1)
 
 
-🚀 Next Steps
+## 🚀 Next Steps
 
 - Enable user login (soon)
 - Make the planner mobile-friendly (soon)
