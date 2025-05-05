@@ -31,7 +31,8 @@ Each family member can access the planner and contribute – making the weekly s
 
 ## 📸 Screenshot (optional)
 
-*(soon!)*
+![image](https://github.com/user-attachments/assets/4ad12c0e-02f6-4db3-8784-f55ea6b8ffe1)
+
 
 ## 🚀 Next Steps
 
